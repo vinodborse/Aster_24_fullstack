@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+        "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+
+	<!-- 
+		Student s = new Student();
+		s.setRollno(1); 
+		s.setName("Vinod");
+	-->
+	<!--
+	<bean class="com.sk.Student" name="s1">
+		<property name="rollno" value="1"></property>
+		<property name="name" value="Champak"></property>
+		<property name="address" value="Pune"></property>
+	</bean>
+	-->
+	
+	<!-- 
+    	Student s = new Student(2, "Don", "Pune");
+	-->
+	
+	<bean class="com.sk.Student" name="s1">
+		<constructor-arg value="2"></constructor-arg>
+		<constructor-arg value="Radhika"></constructor-arg>
+		<constructor-arg value="Mumbai"></constructor-arg>
+	</bean>
+	
+</beans>

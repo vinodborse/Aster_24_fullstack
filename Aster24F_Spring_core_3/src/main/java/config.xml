@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+        "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<beans>
+
+	<!-- 
+		Student s = new Student();
+		s.setRollno(1); 
+		s.setName("Vinod");
+	-->
+	<!--
+	<bean class="com.sk.Student" name="s1">
+		<property name="rollno" value="1"></property>
+		<property name="name" value="Champak"></property>
+		<property name="address" value="Pune"></property>
+	</bean>
+	-->
+	<!--
+		<bean class="com.sk.Student" name="s1">
+			<property name="b">
+				<bean class="com.sk.Batch"></bean>		
+			</property>
+		</bean>
+	-->
+	
+	<!-- 	
+		<bean class="com.sk.Student" name="s1">
+			<property name="b" ref="b1"></property>
+		</bean>
+		<bean class="com.sk.Batch" name="b1"></bean>
+	-->	
+	<!--
+		<bean class="com.sk.Student" name="s1" autowire="byName"></bean>
+		<bean class="com.sk.Batch" name="b"></bean>
+	-->
+	
+	<bean class="com.sk.Student" name="s1" autowire="byType"></bean>
+	<bean class="com.sk.Batch" name="b1"></bean>
+
+
+</beans>
