@@ -1,5 +1,6 @@
 package com.sk.service;
 
+import java.util.Optional;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,12 +31,43 @@ public class AccountService {
 	}
 
 	public String chekBalance(int accountnumber) {
-		//..........
-		return "Your balance is:- ";
+		Optional<Account> userAccount =  accountRepository.findByAccountnumber(accountnumber);
+		
+		if(userAccount.isPresent()) {
+			return  "Your balance is:- " +userAccount.get().getBalance();
+		} else {
+			return  "Please Enter valid account number";
+		}
+		
+
+		
 	}
 
 	public String addBalance(int accountnumber, int amount) {
-		// TODO Auto-generated method stub
+		
+		Optional<Account> userAccount = accountRepository.findByAccountnumber(accountnumber);
+		
+		if(userAccount.isPresent()) {
+			int currentBalance = userAccount.get().getBalance();
+			int updatedBalance = currentBalance + amount;
+			userAccount.get().setBalance(updatedBalance);
+			accountRepository.save(userAccount.get());
+			return "Balance added successfully..!!!";
+		} else {
+			return "Please provide valid account number..!!!";
+		}
+		
+
+	}
+
+
+	public String transferBalance(int fromAccountNumber, int amount, int toAccountNumber) {
+		// valid fromAccountNumber
+		// valid toAccountNumber
+		// check balance of your account-> balance >= amount
+		// your balance - amount
+		// to balance + amount
 		return null;
 	}
 }
+
